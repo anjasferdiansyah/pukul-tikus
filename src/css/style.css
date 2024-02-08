@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../asset/img/background.png");
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Neucha", cursive;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: 0;
+  background: #eee;
+  border-radius: 12px;
+  cursor: pointer;
+  font-style: normal;
+  border: 1px solid chocolate;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: #ccc;
+}
+.container {
+  margin: auto;
+  position: relative;
+  width: 50%;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: url("../asset/img/hammer-1.png"), auto;
+}
+
+.container:active {
+  cursor: url("../asset/img/hammer.png"), auto;
+}
+
+.tanah {
+  width: calc(100% / 3);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.tanah::after {
+  content: "";
+  z-index: 2;
+  display: block;
+  position: absolute;
+  bottom: -27px;
+  width: 100%;
+  height: 40%;
+  background: url("../asset/img/tanah.png") top center no-repeat;
+  background-size: 110%;
+}
+
+.tikus {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url("../asset/img/mole.png") bottom center no-repeat;
+  background-size: 80%;
+  top: 300px;
+  transition: top cubic-bezier(0, 0, 0.2, 1) 1s;
+}
+
+.tikus.pukul {
+  background: url("../asset/img/mole_hurt.png") bottom center no-repeat;
+  background-size: 80%;
+}
+
+.tanah.muncul .tikus {
+  top: -19px;
+  transition: top cubic-bezier(0, 0, 0.2, 1) 0.5s;
+}
